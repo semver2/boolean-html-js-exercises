@@ -1,0 +1,22 @@
+{
+  "name": "boolean-html-js-exercises",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "lr-http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpincheiraa/boolean-html-js-exercises.git"
+  },
+  "author": "Gonzalo Pincheira <g.pincheira.a@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gpincheiraa/boolean-html-js-exercises/issues"
+  },
+  "homepage": "https://github.com/gpincheiraa/boolean-html-js-exercises#readme",
+  "dependencies": {
+    "lr-http-server": "^0.1.5"
+  }
+}

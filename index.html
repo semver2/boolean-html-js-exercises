@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Ejercicios</title>
+</head>
+<body>
+    <header> <h1> Ejercicios de Javascript y el DOM </h1> </header>
+
+    <div>
+        <h4> 1. Escriba un código que dado un texto dentro del div con el id "ejercicio-1"
+             aumente/disminuya el font-size cada 6 caracteres partiendo con el tamaño 12.
+             El aumento debe ser de a 6px y el resultado debe agregarse en el div con el id "resultado-ejercicio-1"
+             Nota: A los espacios en blanco no se les puede aplicar cambio en el font-size
+        </h4>
+
+        <div id="ejercicio-1">
+            Había una vez 2 jóvenes viajando en un bus de la compañia LINATAL desde Santiago a Talca.
+        </div>
+        <div id="resultado-ejercicio-1"></div>
+    </div>
+
+    <div>
+        <h4> 2. Escriba un código que dado una definición JSON dibuje una tabla basado en un array de objectos.
+             Se debe usar la etiqueta &lt;table&gt; y utilizar &lt;thead&gt; y &lt;th&gt; para los headers de la tabla y &lt;tbody&gt;, &lt;tr&gt;
+             y &lt;td&gt; para las columnas y filas con el contenido.
+             Nota: Utilizar JSON.parse() para transformar el texto en el div con id "ejercicio-2" en un objeto y usar Object.keys para obtener
+             las "key" de cada objeto que serviran de titulo para las columnas. Basta con obtener las keys del primer objeto
+             para usar esas como nombre de las columnas.
+        </h4>
+
+        <div id="ejercicio-2">
+            { "people": [
+                  { "name": "Gonzalo", "lastName": "Pincheira", "age": 31, "address": "San Isidro 151"},
+                  { "name": "Tamara",  "lastName": "Acevedo", "age": 30, "address": "San Isidro 151"}
+                ]
+            }
+        </div>
+        <div id="resultado-ejercicio-2"></div>
+    </div>
+    <script src="/exercises.js"></script>
+</body>
+</html>
