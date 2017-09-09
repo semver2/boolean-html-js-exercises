@@ -10,9 +10,9 @@
     <header> <h1> Ejercicios de Javascript y el DOM </h1> </header>
 
     <div>
-        <h4> 1. Escriba un código que dado un texto dentro del div con el id "ejercicio-1"
+        <h4> 1. Escriba un código que dado un texto dentro del div con el id "exercise-1"
              aumente/disminuya el font-size cada 6 caracteres partiendo con el tamaño 12.
-             El aumento debe ser de a 6px y el resultado debe agregarse en el div con el id "resultado-ejercicio-1"
+             El aumento debe ser de a 6px y el resultado debe agregarse en el div con el id "exercise-result-1"
              Nota: A los espacios en blanco no se les puede aplicar cambio en el font-size
         </h4>
 
@@ -23,16 +23,18 @@
     </div>
 
     <div>
-        <h4> 2. Escriba un código que dado una definición JSON dibuje una tabla basado en un array de objectos.
+        <h4> 2. Escriba un código que dado una definición JSON dibuje una tabla y basado en un array de objectos.
              Se debe usar la etiqueta &lt;table&gt; y utilizar &lt;thead&gt; y &lt;th&gt; para los headers de la tabla y &lt;tbody&gt;, &lt;tr&gt;
              y &lt;td&gt; para las columnas y filas con el contenido.
-             Nota: Utilizar JSON.parse() para transformar el texto en el div con id "ejercicio-2" en un objeto y usar Object.keys para obtener
+             La table resultante debe quedar dentro del div con el id "exercise-result-2".
+             Nota: Utilizar JSON.parse() para transformar el texto en el div con id "exercise-2" en un objeto y usar Object.keys para obtener
              las "key" de cada objeto que serviran de titulo para las columnas. Basta con obtener las keys del primer objeto
              para usar esas como nombre de las columnas.
         </h4>
 
         <div id="exercise-2">
-            { "people": [
+            {
+                "people": [
                   { "name": "Gonzalo", "lastName": "Pincheira", "age": 31, "address": "San Isidro 151"},
                   { "name": "Tamara",  "lastName": "Acevedo", "age": 30, "address": "San Isidro 151"}
                 ]
@@ -40,6 +42,24 @@
         </div>
         <div id="exercise-result-2"></div>
     </div>
+
+    <div>
+        <h4> 3. Escriba un código que copie la tabla resultante del ejercicio 2 en el div con id "exercise-result-3".
+                Luego dar funcionalidad al botón que está en el div con id "exercise-3". Este botón debe al ser
+                presionado, comenzar a cambiar cada 2 segundos, de manera aleatoria el color de alguna de las filas
+                donde están los datos con un color aleatorio. Una vez presionado el botón este debe cambiar su texto a
+                "Detener" y al ser presionado debe volver al texto que tenía originalmente y detener el funcionamiento
+                del cambio de color aleatorio.
+                Nota: utilizar addEventListener para reconocer el click en el botón y utilizar setInterval() para cambiar
+                los colores de las filas aleatoriamente.
+        </h4>
+
+        <div id="exercise-3">
+            <button id="start-stop-button">Comenzar</button>
+        </div>
+        <div id="exercise-result-3"></div>
+    </div>
+
     <script src="/exercises.js"></script>
 </body>
 </html>
