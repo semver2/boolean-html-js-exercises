@@ -23,7 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ((sourceDiv, resultDiv) => {
         ///////////////////// EXERCISE 3 ////////////////////////////////////////
+        const availableColors = ['red','orange','yellow','green','blue','purple'];
+        const triggerButton = sourceDiv.querySelector('#start-stop-button');
+        const originalButtonText = button.textContent;
 
+        let active = false;
+        let intervalFunction = null;
+
+        const generateRandomColor = () => availableColors[Math.random() * availableColors.length | 0];
         ///////////////////// END EXERCISE 3 ////////////////////////////////////////
     })( ...getExerciseElements(3) );
 });
