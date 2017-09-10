@@ -8,6 +8,11 @@
 
 export default function(sourceDiv, resultDiv) {
     //////////////////// EXERCISE 1 ////////////////////////////////////////
+    var numberchars = sourceDiv.innerHTML.replace(/\s+/g, '');
+    var fontsize = 12;
 
+    fontsize = fontsize + parseInt(numberchars.length / 6)
+    resultDiv.setAttribute("style", "font-size: " + fontsize + "px;");
+    console.log(sourceDiv.constructor);
     //////////////////// END EXERCISE 1 ////////////////////////////////////////
 }

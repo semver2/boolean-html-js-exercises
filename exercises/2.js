@@ -8,5 +8,8 @@
 
 export default function(sourceDiv, resultDiv) {
     //////////////////// EXERCISE 2 ////////////////////////////////////////
+    var json = JSON.parse(sourceDiv.innerHTML);
+
+    console.log(json)
     //////////////////// END EXERCISE 2 ////////////////////////////////////////
 }
