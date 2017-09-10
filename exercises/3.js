@@ -5,12 +5,10 @@
 *    - (English) https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement
 * @param {HTMLDivElement} resultDiv object where will add the result of the exercise
 * @param {Function} generateRandomColor util function that generate a random color
-*
-* @returns {Function} implementation that solves the exercise.
 */
 
 export default function(sourceDiv, resultDiv, generateRandomColor) {
     //////////////////// EXERCISE 3 ////////////////////////////////////////
-    
+
     //////////////////// END EXERCISE 3 ////////////////////////////////////////
 }
