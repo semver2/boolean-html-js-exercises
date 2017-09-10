@@ -9,6 +9,21 @@
 
 export default function(sourceDiv, resultDiv) {
     //////////////////// EXERCISE 1 ////////////////////////////////////////
+    const text = sourceDiv.textContent.trim();
+    let fontSize = 12;
+    let augmentSize = true;
+    for(let i = 0; i < text.length; i++) {
+        if(text[i]) {
+            const span = document.createElement("span");
+            span.textContent = text[i];
+            span.style.fontSize = `${fontSize}px`;
+            resultDiv.appendChild(span);
 
+            if(i % 6 === 0 && i !== 0) {
+                augmentSize = !augmentSize;
+            }
+            fontSize = augmentSize ? fontSize + 6 : fontSize - 6;
+        }
+    }
     //////////////////// END EXERCISE 1 ////////////////////////////////////////
 }
