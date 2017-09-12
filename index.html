@@ -7,68 +7,72 @@
     <title>Ejercicios</title>
 </head>
 <body>
-    <header> <h1> Ejercicios de Javascript y el DOM </h1> </header>
-
-    <div>
-        <h4> 1. En el archivo "./exercises/1.js" se provee un función para resolver este ejericio. Dentro de esta función
-             escriba un código que dado un texto dentro del div "sourceDiv" dado como primer parámetro de la función,
-             aumente/disminuya el font-size cada 6 caracteres partiendo con el tamaño 12.
-             El aumento debe ser de a 6px y el resultado debe agregarse en el div llamado "resultDiv" también dado como parametro de la función.
-
-             <p>Nota: A los espacios en blanco no se les puede aplicar cambio en el font-size</p>
-        </h4>
-
-        <div id="exercise-1">
-            Había una vez 2 jóvenes viajando en un bus de la compañia LINATAL desde Santiago a Talca.
+    <header>
+        <h1> Ejercicios de Javascript y el DOM </h1>
+    </header>
+    <div class="main-content">
+        <div id="exercise-area-1">
+            <div id="exercise-1-statement"></div>
+            <fieldset style="border: 1px black solid">
+                <legend style="border: 1px black">
+                    <h4>#exercise-1</h4>
+                </legend>
+                <div id="exercise-1">
+                    Había una vez 2 jóvenes viajando en un bus de la compañia LINATAL desde Santiago a Talca.
+                </div>
+            </fieldset>
+            <fieldset style="border: 1px black solid">
+                <legend style="border: 1px black">
+                    <h4>#exercise-result-1</h4>
+                </legend>
+                <div id="exercise-result-1"></div>
+            </fieldset>
         </div>
-        <div id="exercise-result-1"></div>
-    </div>
-
-    <div>
-        <h4> 2. En el archivo "./exercises/2.js" se provee un función para resolver este ejericio. Dentro de esta función
-             escriba un código que dado una definición JSON dibuje una tabla y basado en un array de objectos.
-             Se debe usar la etiqueta &lt;table&gt; y utilizar &lt;thead&gt; y &lt;th&gt; para los headers de la tabla y &lt;tbody&gt;, &lt;tr&gt;
-             y &lt;td&gt; para las columnas y filas con el contenido.
-             La table resultante debe quedar dentro del div "resultDiv".
-
-             <p>Nota: Utilizar JSON.parse() para transformar el texto en el div "sourceDiv" en un objeto y usar Object.keys para obtener
-             las "key" de cada objeto que serviran de titulo para las columnas. Basta con obtener las keys del primer objeto
-             para usar esas como nombre de las columnas.</p>
-        </h4>
-
-        <div id="exercise-2">
-            {
-                "people": [
-                  { "name": "Gonzalo", "lastName": "Pincheira", "age": 31, "address": "San Isidro 151"},
-                  { "name": "Tamara",  "lastName": "Acevedo", "age": 30, "address": "San Isidro 151"}
-                ]
-            }
+        <div id="exercise-area-2">
+            <div id="exercise-2-statement"></div>
+            <fieldset style="border: 1px black solid">
+                <legend style="border: 1px black">
+                    <h4>#exercise-2</h4>
+                </legend>
+                <div id="exercise-2">
+                    <pre>
+                        <code>
+                          {
+                            "people": [
+                              { "name": "Gonzalo", "lastName": "Pincheira", "age": 31, "address": "San Isidro 151"},
+                              { "name": "Tamara",  "lastName": "Acevedo", "age": 30, "address": "San Isidro 151"}
+                            ]
+                          }
+                        </code>
+                    </pre>
+                </div>
+            </fieldset>
+            <fieldset style="border: 1px black solid">
+                <legend style="border: 1px black">
+                    <h4>#exercise-result-2</h4>
+                </legend>
+                <div id="exercise-result-2"></div>
+            </fieldset>
+            <div id="exercise-result-2"></div>
         </div>
-        <div id="exercise-result-2"></div>
-    </div>
-
-    <div>
-        <h4> 3. En el archivo "./exercises/3.js" se provee un función para resolver este ejericio. Dentro de esta función
-                escriba un código que clone la tabla resultante del ejercicio 2 que debería estar contenida dentro de un div
-                con id "exercise-result-2" y agreguela al div "resultDiv".
-                Luego dar funcionalidad al botón que está en el div "sourceDiv". Este botón debe, al ser
-                presionado, comenzar a cambiar cada 2 segundos, de manera aleatoria el color de alguna de las filas
-                donde están los datos con un color también aleatorio. Una vez presionado el botón este debe cambiar su texto a
-                "Detener" y al ser presionado debe volver al texto que tenía originalmente y detener el funcionamiento
-                del cambio de color aleatorio.
-
-                <p>Nota: Utilizar addEventListener para reconocer el click en el botón, cloneNode(true) para clonar
-                la tabla del ejercicio 2 y setInterval() para cambiar los colores de las filas aleatoriamente.</p>
-
-                <p>Tip: Para obtener un número aleatorio entre 0 y x, utilice esta expresión: "Math.random() * x | 0"</p>
-        </h4>
-
-        <div id="exercise-3">
-            <button id="start-stop-button">Comenzar</button>
+        <div id="exercise-area-3">
+            <div id="exercise-3-statement"></div>
+            <fieldset style="border: 1px black solid">
+                <legend style="border: 1px black">
+                    <h4>#exercise-3</h4>
+                </legend>
+                <div id="exercise-3">
+                    <button id="start-stop-button">Comenzar</button>
+                </div>
+            </fieldset>
+            <fieldset style="border: 1px black solid">
+                <legend style="border: 1px black">
+                    <h4>#exercise-result-3</h4>
+                </legend>
+                <div id="exercise-result-3"></div>
+            </fieldset>
         </div>
-        <div id="exercise-result-3"></div>
     </div>
-
     <script src="/index.bundle.js"></script>
 </body>
 </html>
