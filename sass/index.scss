@@ -1,0 +1,9 @@
+div[id^="exercise-area-"] > fieldset {
+    border: 1px black solid;
+    border-radius: 0.4em;
+    background-color: #FAFAFA;
+
+    > legend {
+        border: 1px black;
+    }
+}
