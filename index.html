@@ -11,64 +11,11 @@
         <h1> Ejercicios de Javascript y el DOM </h1>
     </header>
     <div class="main-content">
-        <div id="exercise-area-1">
-            <div id="exercise-1-statement"></div>
-            <fieldset style="border: 1px black solid">
-                <legend style="border: 1px black">
-                    <h4>#exercise-1</h4>
-                </legend>
-                <div id="exercise-1">
-                    Había una vez 2 jóvenes viajando en un bus de la compañia LINATAL desde Santiago a Talca.
-                </div>
-            </fieldset>
-            <fieldset style="border: 1px black solid">
-                <legend style="border: 1px black">
-                    <h4>#exercise-result-1</h4>
-                </legend>
-                <div id="exercise-result-1"></div>
-            </fieldset>
-        </div>
-        <div id="exercise-area-2">
-            <div id="exercise-2-statement"></div>
-            <fieldset style="border: 1px black solid">
-                <legend style="border: 1px black">
-                    <h4>#exercise-2</h4>
-                </legend>
-                <div id="exercise-2">
-<pre><code>{
-  "people": [
-    { "name": "Gonzalo", "lastName": "Pincheira", "age": 31, "address": "San Isidro 151"},
-    { "name": "Tamara",  "lastName": "Acevedo", "age": 30, "address": "San Isidro 151"}
-  ]
-}
-</code></pre>
-                </div>
-            </fieldset>
-            <fieldset style="border: 1px black solid">
-                <legend style="border: 1px black">
-                    <h4>#exercise-result-2</h4>
-                </legend>
-                <div id="exercise-result-2"></div>
-            </fieldset>
-            <div id="exercise-result-2"></div>
-        </div>
-        <div id="exercise-area-3">
-            <div id="exercise-3-statement"></div>
-            <fieldset style="border: 1px black solid">
-                <legend style="border: 1px black">
-                    <h4>#exercise-3</h4>
-                </legend>
-                <div id="exercise-3">
-                    <button id="start-stop-button">Comenzar</button>
-                </div>
-            </fieldset>
-            <fieldset style="border: 1px black solid">
-                <legend style="border: 1px black">
-                    <h4>#exercise-result-3</h4>
-                </legend>
-                <div id="exercise-result-3"></div>
-            </fieldset>
-        </div>
+
+        <%= require("html-loader!./templates/exercise-1-markup.html") %>
+        <%= require("html-loader!./templates/exercise-2-markup.html") %>
+        <%= require("html-loader!./templates/exercise-3-markup.html") %>
+
     </div>
     <script src="/index.bundle.js"></script>
 </body>
