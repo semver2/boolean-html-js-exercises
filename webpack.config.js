@@ -8,8 +8,8 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
-            { test: /\.html$/, loader: "html-loader" }
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            { test: /\.md$/, loaders: [ "html-loader", "markdown-loader"] }
         ]
     },
     devtool: "eval-source-map",
