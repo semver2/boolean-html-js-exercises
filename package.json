@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
-    "test": "cross-env NODE_PATH=./src jest --coverage --verbose"
+    "tdd": "cross-env NODE_PATH=./ jest --watch --verbose",
+    "test": "cross-env NODE_PATH=./ jest --coverage --verbose"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,16 @@
     "url": "https://github.com/gpincheiraa/boolean-html-js-exercises/issues"
   },
   "homepage": "https://github.com/gpincheiraa/boolean-html-js-exercises#readme",
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.md$": "markdown-loader-jest"
+    },
+    "testURL": "http://localhost:3000",
+    "testMatch": [
+      "<rootDir>/**/*_spec.js"
+    ]
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -32,8 +42,10 @@
     "html-webpack-plugin": "^2.30.1",
     "jest-cli": "^21.0.2",
     "markdown-loader": "^2.0.1",
+    "markdown-loader-jest": "github:gpincheiraa/markdown-loader-jest",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
+    "sinon": "^3.2.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.6",
     "webpack-dev-server": "^2.7.1"

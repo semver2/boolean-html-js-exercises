@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1505339142641" clover="3.2.0">
+  <project timestamp="1505339142641" name="All files">
+    <metrics statements="20" coveredstatements="9" conditionals="3" coveredconditionals="0" methods="7" coveredmethods="3" elements="30" coveredelements="12" complexity="0" loc="20" ncloc="20" packages="2" files="4" classes="4">
+      <package name="lib">
+        <metrics statements="17" coveredstatements="6" conditionals="3" coveredconditionals="0" methods="7" coveredmethods="3"/>
+        <file name="ExercisesEvaluator.js" path="/Users/gonzaloignaciopincheiraarancibia/Desktop/nodeApps/boolean/courses/html-js-exercises/lib/ExercisesEvaluator.js">
+          <metrics statements="17" coveredstatements="6" conditionals="3" coveredconditionals="0" methods="7" coveredmethods="3"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="3" type="stmt"/>
+          <line num="23" count="3" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="40" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="43" count="0" type="cond" truecount="0" falsecount="3"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="templates">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="exercise-1-statement.md" path="/Users/gonzaloignaciopincheiraarancibia/Desktop/nodeApps/boolean/courses/html-js-exercises/templates/exercise-1-statement.md">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+        </file>
+        <file name="exercise-2-statement.md" path="/Users/gonzaloignaciopincheiraarancibia/Desktop/nodeApps/boolean/courses/html-js-exercises/templates/exercise-2-statement.md">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+        </file>
+        <file name="exercise-3-statement.md" path="/Users/gonzaloignaciopincheiraarancibia/Desktop/nodeApps/boolean/courses/html-js-exercises/templates/exercise-3-statement.md">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
