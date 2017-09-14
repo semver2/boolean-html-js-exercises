@@ -13,4 +13,4 @@ donde están los datos con un color también aleatorio. Una vez presionado el bo
 la tabla del ejercicio 2
 - Utilizar `setInterval()` para cambiar los colores de las filas aleatoriamente.
 
-**Tip:** Para obtener un número aleatorio entre 0 y x, utilice esta expresión: `Math.random() * x | 0`
+**Tip:** Para obtener un número aleatorio entre 0 y < x, utilice esta expresión: `Math.trunc(Math.random() * x)`
