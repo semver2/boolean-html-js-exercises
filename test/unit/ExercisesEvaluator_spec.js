@@ -7,10 +7,15 @@ describe("ExercisesEvaluator Class", () => {
         const htmlDivMock = {
             innerHTML: ""
         }
+        const exercisesImplementationsArray = [
+            jest.fn(),
+            jest.fn(),
+            jest.fn()
+        ]
         jest.spyOn(global.document, 'getElementById')
             .mockImplementation(() => htmlDivMock)
 
-        exercisesEvaluator = new ExercisesEvaluator()
+        exercisesEvaluator = new ExercisesEvaluator(exercisesImplementationsArray)
     })
 
     it("should be defined", () => {
@@ -43,4 +48,40 @@ describe("ExercisesEvaluator Class", () => {
             expect(divs[index].innerHTML).toEqual(template)
         })
     })
+    it("should return a random color on method generateRandomColor", () => {
+        jest.spyOn(global.Math, 'random')
+            .mockReturnValueOnce(0.1)
+            .mockReturnValueOnce(0.6)
+
+        expect(exercisesEvaluator.generateRandomColor()).toEqual("red")
+        expect(exercisesEvaluator.generateRandomColor()).toEqual("green")
+    })
+    it("should evaluate the function from exercises list and pass the right params", () => {
+        const divs = [
+            {
+                innerHTML: ""
+            },
+            {
+                innerHTML: ""
+            }
+        ]
+        jest.spyOn(global.document, 'getElementById')
+            .mockReturnValueOnce(divs[0])
+            .mockReturnValueOnce(divs[1])
+            .mockReturnValueOnce(divs[0])
+            .mockReturnValueOnce(divs[1])
+            .mockReturnValueOnce(divs[0])
+            .mockReturnValueOnce(divs[1])
+
+        exercisesEvaluator.evaluate()
+
+        exercisesEvaluator.exercisesList.forEach((exerciseImplementation, index) => {
+            if (index === 2) {
+                expect(exerciseImplementation).toHaveBeenCalledWith(...divs, exercisesEvaluator.generateRandomColor)
+            } else {
+                expect(exerciseImplementation).toHaveBeenCalledWith(...divs)
+            }
+        })
+    })
+
 })
