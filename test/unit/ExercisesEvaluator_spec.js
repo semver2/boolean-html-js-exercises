@@ -1,15 +1,16 @@
-import sinon from 'sinon'
 import ExercisesEvaluator from '../../lib/ExercisesEvaluator'
 
 describe("ExercisesEvaluator Class", () => {
     let exercisesEvaluator
 
     beforeEach(() => {
-        sinon.stub(global.document, 'getElementById').returns({
+        const htmlDivMock = {
             innerHTML: ""
-        })
+        }
+        jest.spyOn(global.document, 'getElementById')
+            .mockImplementation(() => htmlDivMock)
+
         exercisesEvaluator = new ExercisesEvaluator()
-        global.document.getElementById.restore()
     })
 
     it("should be defined", () => {
@@ -30,17 +31,16 @@ describe("ExercisesEvaluator Class", () => {
             "<h1>Exercise1</h1>",
             "<h2>Exercise2</h2>"
         ]
-        const documentMock = sinon.stub(global.document, 'getElementById')
-
-        documentMock.withArgs(divs[0].selector).returns(divs[0])
-        documentMock.withArgs(divs[1].selector).returns(divs[1])
+        jest.spyOn(global.document, 'getElementById')
+            .mockReturnValueOnce(divs[0])
+            .mockReturnValueOnce(divs[1])
 
         exercisesEvaluator.exercisesTemplates = templates;
         exercisesEvaluator.initialize()
 
         templates.forEach((template, index) => {
+            expect(global.document.getElementById).toHaveBeenCalledWith(divs[index].selector)
             expect(divs[index].innerHTML).toEqual(template)
         })
-        global.document.getElementById.restore()
     })
 })
