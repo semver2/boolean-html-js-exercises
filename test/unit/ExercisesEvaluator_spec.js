@@ -18,7 +18,9 @@ describe("ExercisesEvaluator Class", () => {
         exercisesEvaluator = new ExercisesEvaluator(exercisesImplementationsDefaults)
     }
 
-    beforeEach(() => exercisesInjector())
+    beforeEach(() => {
+        exercisesInjector()
+    })
 
     it("should be defined", () => {
         expect(exercisesEvaluator).toBeDefined()
@@ -85,7 +87,7 @@ describe("ExercisesEvaluator Class", () => {
             }
         })
     })
-    it("should be evaluate only if exist defined exercises in the exercises list", () => {
+    it("should evaluate only if exist defined exercises in the exercises list", () => {
         const exercises = [ null, jest.fn(), null]
         //this will be that the exercisesEvaluator instance will be refreshed
         exercisesInjector(exercises)
@@ -94,5 +96,22 @@ describe("ExercisesEvaluator Class", () => {
             exercisesEvaluator.evaluate()
             expect(exercises[1]).toBeCalled()
         }).not.toThrow()
+    })
+    it("should evaluate the templates only if exists defined exercises in the exercises list", () => {
+        const exercises = [ null, jest.fn(), null]
+        //this will be that the exercisesEvaluator instance will be refreshed
+        exercisesInjector(exercises)
+        //the exercisesInjector method call initialize method,
+        //therefore the global.document.getElementById it's "dirty".
+        //let's clean the mock calls
+        global.document.getElementById.mockClear()
+
+        jest.spyOn(global.document, 'getElementById')
+
+        exercisesEvaluator.initialize()
+
+        expect(global.document.getElementById).toHaveBeenCalledWith("exercise-2-statement")
+        expect(global.document.getElementById).not.toHaveBeenCalledWith("exercise-1-statement")
+        expect(global.document.getElementById).not.toHaveBeenCalledWith("exercise-3-statement")
     })
 })
