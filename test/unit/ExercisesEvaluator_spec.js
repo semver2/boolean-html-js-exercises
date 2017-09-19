@@ -13,7 +13,7 @@ describe("ExercisesEvaluator Class", () => {
         ]
 
         jest.spyOn(global.document, 'getElementById')
-            .mockImplementation(() => htmlDivMock)
+            .mockReturnValue(htmlDivMock)
 
         exercisesEvaluator = new ExercisesEvaluator(exercisesImplementationsDefaults)
     }
@@ -97,7 +97,7 @@ describe("ExercisesEvaluator Class", () => {
             expect(exercises[1]).toBeCalled()
         }).not.toThrow()
     })
-    it("should evaluate the templates only if exists defined exercises in the exercises list", () => {
+    it("should evaluate the templates only if exists defined exercises in the exercises list in the initialization", () => {
         const exercises = [ null, jest.fn(), null]
         //this will be that the exercisesEvaluator instance will be refreshed
         exercisesInjector(exercises)
@@ -114,4 +114,51 @@ describe("ExercisesEvaluator Class", () => {
         expect(global.document.getElementById).not.toHaveBeenCalledWith("exercise-1-statement")
         expect(global.document.getElementById).not.toHaveBeenCalledWith("exercise-3-statement")
     })
+    it("should remove the source and result divs on the non-provided exercises in the initialization", () => {
+        const exercises = [ null, jest.fn(), null]
+        const divs = [
+            {
+                selector: "exercise-1-statement",
+                innerHTML: ""
+            },
+            {
+                selector: "exercise-2-statement",
+                innerHTML: ""
+            },
+            {
+                selector: "exercise-3-statement",
+                innerHTML: ""
+            }
+        ]
+        const templates = [
+            "<h1>Exercise1</h1>",
+            "<h2>Exercise2</h2>",
+            "<h2>Exercise3</h2>"
+        ]
+        //this will be that the exercisesEvaluator instance will be refreshed
+        exercisesInjector(exercises)
+        //the exercisesInjector method call initialize method,
+        //therefore the global.document.getElementById it's "dirty".
+        //let's clean the mock calls
+        global.document.getElementById.mockClear()
+
+        jest.spyOn(global.document, 'getElementById')
+            .mockReturnValueOnce(divs[0])
+            .mockReturnValueOnce(divs[1])
+            .mockReturnValueOnce(divs[2])
+
+        exercisesEvaluator.exercisesTemplates = templates;
+        exercisesEvaluator.initialize()
+
+        exercises.forEach((execerciseExecutor, exerciseIndex) => {
+            if(execerciseExecutor) {
+                expect(global.document.getElementById).not.toHaveBeenCalledWith(`exercise-${exerciseIndex + 1 }-area`)
+                expect(divs[exerciseIndex].innerHTML).toEqual(templates[exerciseIndex])
+            } else {
+                expect(global.document.getElementById).toHaveBeenCalledWith(`exercise-${exerciseIndex + 1 }-area`)
+                expect(divs[exerciseIndex].innerHTML).toEqual("")
+            }
+        })
+    })
+
 })
