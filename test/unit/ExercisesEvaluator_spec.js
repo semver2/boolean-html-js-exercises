@@ -2,21 +2,23 @@ import ExercisesEvaluator from '../../lib/ExercisesEvaluator'
 
 describe("ExercisesEvaluator Class", () => {
     let exercisesEvaluator
-
-    beforeEach(() => {
+    const exercisesInjector = (exercisesImplementations) => {
         const htmlDivMock = {
             innerHTML: ""
         }
-        const exercisesImplementationsArray = [
+        const exercisesImplementationsDefaults = exercisesImplementations || [
             jest.fn(),
             jest.fn(),
             jest.fn()
         ]
+
         jest.spyOn(global.document, 'getElementById')
             .mockImplementation(() => htmlDivMock)
 
-        exercisesEvaluator = new ExercisesEvaluator(exercisesImplementationsArray)
-    })
+        exercisesEvaluator = new ExercisesEvaluator(exercisesImplementationsDefaults)
+    }
+
+    beforeEach(() => exercisesInjector())
 
     it("should be defined", () => {
         expect(exercisesEvaluator).toBeDefined()
@@ -83,5 +85,14 @@ describe("ExercisesEvaluator Class", () => {
             }
         })
     })
+    it("should be evaluate only if exist defined exercises in the exercises list", () => {
+        const exercises = [ null, jest.fn(), null]
+        //this will be that the exercisesEvaluator instance will be refreshed
+        exercisesInjector(exercises)
 
+        expect(() => {
+            exercisesEvaluator.evaluate()
+            expect(exercises[1]).toBeCalled()
+        }).not.toThrow()
+    })
 })
