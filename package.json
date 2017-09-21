@@ -1,6 +1,6 @@
 {
   "name": "boolean-html-js-exercises",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "",
   "bin": {
      "boolean-html-js-exercises": "./bin/cli.js"
