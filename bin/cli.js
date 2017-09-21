@@ -9,16 +9,17 @@ const cliBanner = chalk.green(
   figlet.textSync('Boolean HTML JS Exercises', { horizontalLayout: 'full' })
 );
 let initializer;
-//console.log(path.basename(path.dirname(fs.realpathSync(__filename))));
 
 console.log(cliBanner);
 
-fs.stat(`${basepath}/exercises-sym`, function(err,stats){
+fs.stat(`${basepath}/exercises`, function(err,stats){
+    //@TODO Improve the way that the directory paths was defined and the way for execute the start command
+    //@TODO Add library for manage shell commands instead use exec module
     const startCommand = `(cd ${basepath}/node_modules/boolean-html-js-exercises/ && npm start)`;
     if(err) {
         const sourceSnippetsPath = `${basepath}/node_modules/boolean-html-js-exercises/exercises`;
-        const symbolicSourceSnippetsPath = `${basepath}/exercises-sym`;
-        initializer = exec(`ln -s ${sourceSnippetsPath} ${symbolicSourceSnippetsPath} && ${startCommand}`);
+        const destSnippetsPath = `${basepath}/exercises`;
+        initializer = exec(`cp -r ${sourceSnippetsPath} ${destSnippetsPath} && ${startCommand}`);
     } else{
         initializer = exec(startCommand);
     }

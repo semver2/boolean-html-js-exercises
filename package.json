@@ -1,12 +1,13 @@
 {
   "name": "boolean-html-js-exercises",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "",
   "bin": {
      "boolean-html-js-exercises": "./bin/cli.js"
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server",
     "tdd": "cross-env NODE_PATH=./ jest --watch --verbose",
     "test": "cross-env NODE_PATH=./ jest --coverage --verbose"
   },
