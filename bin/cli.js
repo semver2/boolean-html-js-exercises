@@ -3,31 +3,50 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 const figlet = require("figlet");
+const inquirer = require("inquirer");
 const exec = require('child_process').exec;
 const basepath = process.cwd();
 const cliBanner = chalk.green(
   figlet.textSync('Boolean HTML JS Exercises', { horizontalLayout: 'full' })
 );
-let initializer;
-
-console.log(cliBanner);
-
-fs.stat(`${basepath}/exercises`, function(err,stats){
-    //@TODO Improve the way that the directory paths was defined and the way for execute the start command
+const { log } = console;
+const environment = process.env.NODE_ENV || "default";
+const startCommand = `(cd ${basepath}/node_modules/boolean-html-js-exercises/ && npm start)`;
+const processAnswers = (answers) => {
+    log(answers);
+    if(environment === "default") {
+        fs.stat(`${basepath}/exercises`, findExercisesFolder);
+    } else {
+        exercisesExecutor(`(cd ${basepath} && npm run dev)`);
+    }
+};
+const exercisesExecutor = (command) => {
     //@TODO Add library for manage shell commands instead use exec module
-    const startCommand = `(cd ${basepath}/node_modules/boolean-html-js-exercises/ && npm start)`;
+    const initializer = exec(command);
+    initializer.stdout.on('data', (data) => console.log("stdout", data));
+    initializer.stderr.on('data', (data) => console.log("stderr", data));
+};
+const findExercisesFolder = (err, stats) => {
+    //@TODO Improve the way that the directory paths was defined and the way for execute the start command
+    let initializer;
     if(err) {
         const sourceSnippetsPath = `${basepath}/node_modules/boolean-html-js-exercises/exercises`;
         const destSnippetsPath = `${basepath}/exercises`;
-        initializer = exec(`cp -r ${sourceSnippetsPath} ${destSnippetsPath} && ${startCommand}`);
-    } else{
-        initializer = exec(startCommand);
+        exercisesExecutor(`cp -r ${sourceSnippetsPath} ${destSnippetsPath} && ${startCommand}`);
+    } else {
+        exercisesExecutor(startCommand);
     }
-    initializer.stdout.on('data', function(data){
-        console.log("stdout",data);
-    });
-
-    initializer.stderr.on('data', function(data){
-        console.log("stderr",data);
-    });
-});
+};
+const main = (() => {
+    const logSteps = [
+      {
+        type: 'list',
+        name: 'difficult',
+        message: 'Select the exercises difficult level:',
+        choices: ['easy', 'medium', 'hard'],
+        default: ['medium']
+      }
+    ]
+    log(cliBanner);
+    inquirer.prompt(logSteps).then(processAnswers);
+})();
