@@ -23,6 +23,5 @@ export default function(sourceDiv, resultDiv) {
             }
             fontSize = augmentSize ? fontSize + 6 : fontSize - 6;
         }
-    }
-    //////////////////// END EXERCISE 1 ////////////////////////////////////////
+    }    //////////////////// END EXERCISE 1 ////////////////////////////////////////
 }

@@ -1,9 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const indexEntry = process.env.NODE_ENV === "dev" ? "./index.dev.js"
+                                                  : "./index.js"
 module.exports = {
     entry: [
-      "./index.js"
+        "./sass/index.scss",
+        indexEntry
     ],
     output: {
         path: __dirname + "/dist",
