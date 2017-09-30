@@ -6,12 +6,24 @@ const figlet = require("figlet");
 const inquirer = require("inquirer");
 const exec = require('child_process').exec;
 const basepath = process.cwd();
-const cliBanner = chalk.green(
-  figlet.textSync('Boolean HTML JS Exercises', { horizontalLayout: 'full' })
-);
 const { log } = console;
 const environment = process.env.NODE_ENV || "default";
 const startCommand = `(cd ${basepath}/node_modules/boolean-html-js-exercises/ && npm start)`;
+
+const renderBanner = () => {
+    const bannerOptions = {
+        font: 'ANSI Shadow',
+        verticalLayout: 'controlled smushing'
+    };
+    const words = [
+        { text: 'Boolean', color: '#00EC9C' },
+        { text: 'HTML JS', color: '#6E87F3' },
+        { text: 'Exercises', color: '#1121AB' }
+    ];
+    words.forEach( word => {
+        log(chalk.hex(word.color).underline(figlet.textSync(word.text, bannerOptions)));
+    });
+}
 const processAnswers = (answers) => {
     log(answers);
     if(environment === "default") {
@@ -37,16 +49,15 @@ const findExercisesFolder = (err, stats) => {
         exercisesExecutor(startCommand);
     }
 };
-const main = (() => {
-    const logSteps = [
-      {
-        type: 'list',
-        name: 'difficult',
-        message: 'Select the exercises difficult level:',
-        choices: ['easy', 'medium', 'hard'],
-        default: ['medium']
-      }
-    ]
-    log(cliBanner);
-    inquirer.prompt(logSteps).then(processAnswers);
-})();
+const logSteps = [
+  {
+    type: 'list',
+    name: 'difficult',
+    message: 'Select the exercises difficult level:',
+    choices: ['easy', 'medium', 'hard'],
+    default: ['medium']
+  }
+];
+
+renderBanner();
+inquirer.prompt(logSteps).then(processAnswers);
