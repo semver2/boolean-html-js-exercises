@@ -1,20 +1,21 @@
 {
   "name": "boolean-html-js-exercises",
-  "version": "0.7.2",
+  "version": "0.0.0-development",
   "description": "",
   "bin": {
-     "boolean-html-js-exercises": "./bin/cli.js"
+    "boolean-html-js-exercises": "./bin/cli.js"
   },
   "scripts": {
     "start": "webpack-dev-server",
     "dev": "cross-env NODE_ENV=dev webpack-dev-server",
     "dev:cli": "cross-env NODE_ENV=dev node ./bin/cli.js",
     "tdd": "cross-env NODE_PATH=./ jest --watch --verbose",
-    "test": "cross-env NODE_PATH=./ jest --coverage --verbose"
+    "test": "cross-env NODE_PATH=./ jest --coverage --verbose",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gpincheiraa/boolean-html-js-exercises.git"
+    "url": "https://github.com/gpincheiraa/boolean-html-js-exercises.git"
   },
   "author": "Gonzalo Pincheira <g.pincheira.a@gmail.com>",
   "license": "ISC",
@@ -62,5 +63,8 @@
     "touch": "^3.1.0",
     "webpack": "^3.5.6",
     "webpack-dev-server": "^2.7.1"
+  },
+  "devDependencies": {
+    "semantic-release": "^8.0.3"
   }
 }
