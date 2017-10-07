@@ -11,7 +11,8 @@
     "dev:cli": "cross-env NODE_ENV=dev node ./bin/cli.js",
     "tdd": "cross-env NODE_PATH=./ jest --watch --verbose",
     "test": "cross-env NODE_PATH=./ jest --coverage --verbose",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -65,6 +66,11 @@
     "webpack-dev-server": "^2.7.1"
   },
   "devDependencies": {
-    "semantic-release": "^8.0.3"
+    "semantic-release": "^8.0.3",
+    "commitizen": "1.0.4",
+    "cz-conventional-changelog": "1.1.0"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
